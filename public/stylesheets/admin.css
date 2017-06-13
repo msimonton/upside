@@ -16,16 +16,24 @@
   top: 0px;
   z-index: 1;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 }*/
+
+body {
+  background-color: #192128;
+}
+
+.messages {
+  padding: 50px;
+  margin: auto;
+  background-color: white;
+  width: 60%;
+  margin-bottom: 40px;
+}
+
+.mess-header  {
+  margin-bottom: 3px;
+}
+
+.mess-cont  {
+  margin-top: 0px;
+}

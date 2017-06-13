@@ -3,14 +3,18 @@
 <head>
   <meta charset="utf-8">
   <title>Admin</title>
+  <link rel='stylesheet' type="text/css" href="stylesheets/admin.css">
 </head>
 <body>
 
-<h1 class='about-content'> Hello</h1>
-<div class='about-content'></div>
+<a href='/home'>Home</a>
 
 {{#each allMessages}}
   <div class='messages'>
+    <div class='colmm'>
+      <h3 class='mess-header'>From</h3>
+      <p class='mess-cont'>{{name}}
+    </div>
     <div class='colmm'>
       <h3 class='mess-header'>Recieved</h3>
       <p class='mess-cont'>{{created_at}}

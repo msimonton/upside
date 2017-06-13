@@ -20,8 +20,13 @@ router.get('/admin', function(req, res, next) {
   });
 });
 
+router.get('/home', function(req, res, next) {
+    res.redirect('/');
+});
+
 router.post('/messages', function(req, res, next) {
-  Messages().insert({email: req.body.email,
+  Messages().insert({name: req.body.name,
+                    email: req.body.email,
                     subject: req.body.subject,
                     phoneNumber: req.body.phoneNumber,
                     message: req.body.message
