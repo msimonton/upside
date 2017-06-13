@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upside Events</title>
+
+  <link rel="shortcut icon" href="images/favicon.ico">
+
+
+                        <!-- Jquery -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+                        <!--   Stylesheets -->
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+  <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="stylesheets/mobile.css"/>
+  <link rel="stylesheet" type="text/css" href="stylesheets/styles.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans:300" rel="stylesheet">
+
+                      <!--   Angular CDNs -->
+
+  <script src="http://code.angularjs.org/1.2.13/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.min.js'></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script> -->
+  <script type="text/javascript" src='javascripts/main.js'></script>
+  <base href="/">
+</head>
+<body ng-app='angRoute'>
+
+
+              <!-- Nav Dropdown for Mobile -->
+
+
+  <div class='container-fluid' id='main-nav-mobile'>
+    <a class='nav-links img-mob' ui-sref='home'>
+      <div class='nav-image'>
+        <img id='nav-logo' src='images/full-logo.png'/>
+      </div>
+    </a>
+    <img id='dropdown-toggle'type="button" class="btn btn-info colps" data-toggle="collapse" data-target="#drop" src='/images/hamburg.png'></button>
+  </div>
+
+    <div id="drop" class="collapse">
+      <a class='mob-links' data-toggle="collapse" data-target="#drop" ui-sref='about'><h2 class='mob-links-head'>About Us</h2></a>
+
+      <a class='mob-links' ui-sref='events' data-toggle="collapse" data-target="#drop"><h2 class='mob-links-head'>Events</h2></a>
+
+      <a class='mob-links' ui-sref='gallery' data-toggle="collapse" data-target="#drop"><h2 class='mob-links-head'>Gallery</h2></a>
+
+      <a class='mob-links' ui-sref='connect' data-toggle="collapse" data-target="#drop"><h2 class='mob-links-head'>Participate</h2></a>
+
+      <a class='mob-links' ui-sref='tickets' data-toggle="collapse" data-target="#drop"><h2 class='mob-links-head'>Tickets</h2></a>
+
+      <a class='mob-links close-mob' data-toggle="collapse" data-target="#drop"><img src='images/close.png' height='50'/></a>
+    </div>
+
+
+                <!-- Browser Navigation -->
+
+  <div class='container-fluid' id='main-nav'>
+    <a ui-sref='home'>
+      <div class='nav-upside-text'>
+        <img class='nav-logo-text' src='images/logo-text.png'/>
+        <img class='nav-text-clear' src='images/upside-text.png'/>
+      </div>
+    </a>
+
+              <!-- Left Side of Nav  -->
+
+    <div class='row large-row'>
+      <div class='col-md-3 col-md-offset-2 large-col'>
+        <div class='row nav-row-left'>
+            <div class='col-md-6 col-md-offset-1 nav-left aboot' ui-sref-active="active">
+              <a class='nav-links' ui-sref='about'>
+                <h2  id='about-space'class='nav-text aboot'>About Us</h2>
+            </a>
+          </div>
+            <div class='col-md-5 nav-left' ui-sref-active="active">
+              <a class='nav-links' ui-sref='events'>
+                <h2 class='nav-text'>Events</h2>
+              </a>
+          </div>
+        </div>
+      </div>
+
+          <!-- Center Logo/ Home Link -->
+
+      <div class='col-md-2  large-col'>
+        <a class='nav-links' ui-sref='home'>
+          <div class='nav-image'><img id='nav-logo' src='images/logo2.png'/>
+          </div>
+        </a>
+      </div>
+
+      <!-- Right Side of Nav -->
+
+      <div class='col-md-5 large-col' id='nav-col-last'>
+        <div class='row nav-row-right'>
+          <div class='col-md-4 nav-right' ui-sref-active="active">
+            <a class='nav-links' ui-sref='gallery' >
+              <h2 class='nav-text'>Gallery</h2>
+            </a>
+          </div>
+          <div class='col-md-4 nav-right' ui-sref-active="active">
+              <a class='nav-links' ui-sref='connect'>
+                <h2 class='nav-text nav-participate'>Participate</h2>
+            </a>
+          </div>
+          <div class='col-md-4 nav-right' ui-sref-active="active">
+            <a class='nav-links' ui-sref='tickets'>
+              <h2 class='nav-text tix'>Tickets</h2>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+              <!-- Page Content -->
+
+
+  <div id='content' class='main' ui-view autoscroll="true"></div>
+
+  <a class='nav-links' href='/admin'><div id='admin'>Admin</div></a>
+
+
+  <!-- <footer>
+    <div class='foot-wrap'>
+    <a href='https://www.instagram.com/upsidedenver/?hl=en' target="_blank"><img class='socials' src='../images/socials/insta2.png'/></a>
+    <a href='https://www.facebook.com/groups/662063660664119' target="_blank"><img class='socials' id='facebook' src='../images/socials/booka3.png'/>
+    </div>
+  </footer> -->
+
+
+<script>
+
+if(window.location.href === "http://localhost:3002/#/home"){
+  $(document).ready(function(){
+    $('body').css("margin-bottom","0px");
+    $('footer').css('display','none');
+  })
+}
+
+else {
+  $(document).ready(function(){
+    $('body').css("margin-bottom","0px");
+    $('footer').css('display','block');
+})
+}
+</script>
+
+
+
+
+</body>
+</html>

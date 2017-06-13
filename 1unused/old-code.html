@@ -1,0 +1,241 @@
+
+
+<!--  About Page -->
+
+
+
+<div class='container-fluid mob-team'>
+  <div class='row team-pic-row'>
+    <div class='col-md-1 col-sm-12 team'>
+      <div class='team-pic' id='as' style="background-image:url(../images/head-shots/anne-marie.jpg)"></div>
+        <span class='team-name'>Anne-Marie Salcito</span>
+    </div>
+
+    <div class='col-md-1 col-sm-12 team'>
+      <div class='team-pic' id='ml' style="background-image:url('../images/head-shots/margaux.jpg')"></div>
+        <span class='team-name'>Margaux Lochmiller</span>
+    </div>
+
+    <div class='col-md-1 col-sm-12 team'>
+      <div class='team-pic' id='ls' style="background-image:url('../images/head-shots/leslie.jpg')"></div>
+        <span class='team-name'>Leslie Simonton</span>
+    </div>
+
+    <div class='col-md-1 col-sm-12 team'>
+      <div class='team-pic' id='jl' style="background-image:url('../images/placeholder.jpg')"></div>
+        <span class='team-name'>Jennifer Lazear</span>
+    </div>
+
+    <div class='col-md-1 col-sm-12 team'>
+      <div class='team-pic' id='bh' style="background-image:url('../images/head-shots/bri.jpg')"></div>
+        <span class='team-name'>Brianna Hernandez</span>
+    </div>
+
+    <div class='col-md-1 col-sm-12 team'>
+      <div class='team-pic' id='rg' style="background-image:url('../images/placeholder.jpg')"></div>
+        <span class='team-name'>Rachael Greenberg</span>
+    </div>
+
+    <div class='col-md-1 col-sm-12 team'>
+      <div class='team-pic' id='br' style="background-image:url('../images/placeholder.jpg')"></div>
+        <span class='team-name'>Bridget Rogers</span>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+<!-- Events Page -->
+
+</div>
+<section class='events'>
+  <div id='events-nav'>
+    <div class='event-picker event-1'>
+      <h4 class='event-title'>Volume 1</h4>
+    </div>
+    <div class='event-picker event-2'>
+      <h4 class='event-title'>Volume 2</h4>
+    </div>
+    <div class='event-picker event-3'>
+      <h4 class='event-title'>Volume 3</h4>
+    </div>
+    <div class='event-picker event-4'>
+      <h4 class='event-title'>Volume 4</h4>
+    </div>
+    <div class='event-picker event-5'>
+      <h4 class='event-title'>Volume 5</h4>
+    </div>
+  </div>
+
+
+
+<!--  Tickets Page  -->
+
+<script type="text/javascript">
+  var frame, url = 'https://embed.nightout.com/events/pinkparty/tickets';
+  window.addEventListener('message', function(e) {
+    if (e.data[0] == 'setHeight') frame.style.height = e.data[1] + 'px';
+  }, false);
+  document.addEventListener("DOMContentLoaded", function() {
+    frame = document.getElementById('embed-iframe');
+    frame.setAttribute('src', url);
+  });
+</script>
+<iframe width="100%" height="680px" frameborder="0" border="0" name="Pink Party" id="embed-iframe"></iframe> -->
+
+
+<script type="text/javascript">
+  var frame, url = 'https://embed.nightout.com/events/pinkparty/ticket-form';
+  window.addEventListener('message', function(e) {
+    if (e.data[0] == 'setHeight') frame.style.height = e.data[1] + 'px';
+  }, false);
+  document.addEventListener("DOMContentLoaded", function() {
+    frame = document.getElementById('embed-iframe');
+    frame.setAttribute('src', url);
+  });
+</script>
+<iframe width="100%" height="680px" frameborder="0" border="0" name="Pink Party" id="embed-iframe"></iframe>
+
+
+
+
+<!--  Main javascript -->
+
+$(document).ready(function(){
+    // $('[data-toggle="popover"]').popover();
+    var name= $('.headshot-name');
+    var text= $('.headshot-text');
+    var pic= $('.headshot')
+
+      $('.as').click(function() {
+        name.append('Anne-Marie Salcito')
+      })
+
+});
+
+angRoute.directive('customPopover', function () {
+    return {
+        restrict: 'A',
+        template: '<span>{{label}}</span>',
+        link: function (scope, el, attrs) {
+            scope.label = attrs.popoverLabel;
+            $(el).popover({
+                trigger: 'hover',
+                html: true,
+                content: attrs.popoverHtml,
+                placement: attrs.popoverPlacement
+            });
+        }
+    };
+});
+
+
+
+    var counter = sessionStorage.getItem('count');
+
+        var div = $("#logo-animation");
+        var bod = $('body');
+
+        console.log(counter)
+        if(counter=== null) {
+          $(document).ready(function(){
+            $('.home').css('display','none');
+            div.animate({height: '385px', width:'630px', opacity: '.8'}, 300);
+
+            div.animate({height: '340px', width: '550px',opacity: '.6'},270);
+            bod.stop().delay().animate({backgroundColor: '#26333c'}, 50);
+            bod.animate({backgroundColor: '#192228'},300);
+            div.animate({height: '347px', width: '572px',opacity: '1'}, 180);
+            div.delay(2000).fadeOut('slow');
+
+            $('#test').delay(2600).fadeOut('slow');
+            $('.home').delay(3400).fadeIn(1500);
+            sessionStorage.removeItem("count");
+            sessionStorage.setItem('count', '1');
+            console.log(counter)
+          });
+      }
+
+      else {
+        $(document).ready(function(){
+        $('.logo-animation').css('display','none');
+        $('.home').css('display', 'block')
+        console.log(counter)
+      });
+      }
+
+
+    var counter = sessionStorage.getItem('count')
+    console.log(counter)
+    if(counter===1){
+  $(document).ready(function(){
+
+      $('.logo-animation').css('display','none');
+      $('.home').css('display', 'block')
+      console.log(counter)
+    })
+
+      }
+
+        else {
+          $(document).ready(function(){
+          var div = $("#logo-animation");
+          var bod = $('body');
+
+          div.animate({height: '385px', width:'630px', opacity: '.8'}, 300);
+
+          div.animate({height: '340px', width: '550px',opacity: '.6'},270);
+          bod.stop().delay().animate({backgroundColor: '#26333c'}, 50);
+          bod.animate({backgroundColor: '#192228'},300);
+          div.animate({height: '347px', width: '572px',opacity: '1'}, 180);
+          div.delay(2000).fadeOut('slow');
+
+          $('#test').delay(2600).fadeOut('slow');
+          $('.home').delay(3400).fadeIn(1500);
+          sessionStorage.setItem('count', '1');
+          // console.log(counter)
+    });
+  }
+
+
+<!--   Gallery Page  -->
+
+<div ng-app="customDirectives">
+    <div> <span custom-popover popover-html="Some Popover Text" popover-placement="top" popover-label="Label">aalsdjfladsjflakjsdf</span>
+
+    </div>
+</div>
+
+<img class='logo-slide' src='../images/logo.png'>
+<div class='slide-test'>
+</div>
+
+<img class='logo-slide' src='../images/logo2.png'>
+<div class='edge'></div>
+<img src="../images/logo-text-up.png" class='up'/>
+<img src="../images/logo-text-bot.png" class='bot'/>
+
+<button id='up'>UP</button>
+<button id='down'>DOWN</button>
+
+
+
+$(document).ready(function(){
+  var sldr = $('.logo-slide');
+  $('#up').click(function() {
+      sldr.animate({top: '-250px',
+      height: '300px',
+      opacity: "1"
+    }, 500, "swing");
+
+
+  })
+
+  $('#down').click(function() {
+      sldr.animate({top: '50px',
+        height: "40px",
+        opacity: '.3'}, 300);
+
+
+  })

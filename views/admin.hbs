@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset="utf-8">
+  <title>Admin</title>
+</head>
+<body>
+
+<h1 class='about-content'> Hello</h1>
+<div class='about-content'></div>
+
+{{#each allMessages}}
+  <div class='messages'>
+    <div class='colmm'>
+      <h3 class='mess-header'>Recieved</h3>
+      <p class='mess-cont'>{{created_at}}
+    </div>
+    <div class='colmm'>
+      <h3 class='mess-header'>Email</h3>
+      <p class='mess-cont'>{{email}}
+    </div>
+    <div class='colmm'>
+      <h3 class='mess-header'>Phone Number</h3>
+      <p class='mess-cont'>{{phoneNumber}}
+    </div>
+    <div class='colmm'>
+      <h3 class='mess-header'>Subject</h3>
+      <p class='mess-cont'>{{subject}}
+    </div>
+    <div class='colmm'>
+      <h3 class='mess-header'>Message</h3>
+      <p class='mess-cont'>{{message}}
+    </div>
+  </div>
+  {{/each}}
+</body>
+</html>
