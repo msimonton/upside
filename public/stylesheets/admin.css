@@ -28,10 +28,14 @@ body {
   background-color: white;
   width: 60%;
   margin-bottom: 40px;
+  padding-top: 0px;
 }
 
 .mess-header  {
   margin-bottom: 3px;
+}
+
+.form-label {
 }
 
 .mess-cont  {

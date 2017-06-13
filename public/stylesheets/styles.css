@@ -1,6 +1,39 @@
 
             /*    Index   */
 
+
+.modal-body {
+
+  padding-top: 0px;
+}
+
+form  {
+  background-color: white;
+  padding: 10px 0px 10px
+}
+
+#hidden-select    {
+  display: none;
+}
+
+.form-label {
+  margin: 8px;
+  font: inherit;
+  color: black;
+  font-size: 20px;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+
 #admin  {
   margin: auto;
   text-align: center;
@@ -996,24 +1029,7 @@ color: white;
 }
 
 
-form  {
-  background-color: white;
-  padding: 30px 0px 30px
-}
 
-#hidden-select    {
-  display: none;
-}
-
-.form-label {
-  font: inherit;
-  color: black;
-  font-size: 20px;
-}
-
-input {
-  margin-bottom: 10px;
-}
 
 
 
