@@ -31,7 +31,7 @@ router.post('/messages', function(req, res, next) {
                     phoneNumber: req.body.phoneNumber,
                     message: req.body.message
      }).then(function () {
-    res.redirect('/');
+    res.redirect('/#/connect')
   });
 });
 
