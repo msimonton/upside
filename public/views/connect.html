@@ -52,7 +52,9 @@
                 <input type="tel" name="phoneNumber">
                 <h2 class='form-label'>What's on your mind?</h2>
                 <textarea cols='60' rows='10' name='message'></textarea></br>
-                <input type="submit">
+                <!-- <div id='modal-close' data-dismiss='modal'> -->
+                <input id='form-submit' type="submit" data-toggle=='modal'>
+              <!-- </div> -->
 
               </form>
 
@@ -116,6 +118,7 @@
 <script>
 $(document).ready(function(){
 
+
 $('#myModal').on('shown.bs.modal', function () {
   $('#myInput').focus()
 })
@@ -125,4 +128,4 @@ $('#myModal').on('shown.bs.modal', function () {
 
 
 
-<script type='text/javascript' src='https://fundly.com/assets/widget.loader.js?wid=upside-events'></script>
+<!-- <script type='text/javascript' src='https://fundly.com/assets/widget.loader.js?wid=upside-events'></script> -->

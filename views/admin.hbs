@@ -3,22 +3,61 @@
 <head>
   <meta charset="utf-8">
   <title>Admin</title>
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <link rel='stylesheet' type="text/css" href="stylesheets/admin.css">
 </head>
 <body>
 
 <a href='/home'>Home</a>
 
+
+
+
 {{#each allMessages}}
   <div class='messages'>
+    <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal-{{id}}">View</button>
+    <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal-{{id}}" href='/{{id}}/delete'>Delete</button>
     <div class='colmm'>
       <h3 class='mess-header'>From</h3>
-      <p class='mess-cont'>{{name}}
+      <p class='mess-cont'>{{this.name}}
     </div>
     <div class='colmm'>
       <h3 class='mess-header'>Recieved</h3>
       <p class='mess-cont'>{{created_at}}
     </div>
+
+
+    <div id="myModal-{{id}}" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <a href='/{{id}}/delete'>Delete</a>
+          </div>
+          <div class="modal-body">
+
+
+
+            <div class='colmm'>
+              <h3 class='mess-header'>From</h3>
+              <p class='mess-cont'>{{this.name}}
+            </div>
+            <div class='colmm'>
+              <h3 class='mess-header'>Recieved</h3>
+              <p class='mess-cont'>{{date}}
+            </div>
     <div class='colmm'>
       <h3 class='mess-header'>Email</h3>
       <p class='mess-cont'>{{email}}
@@ -33,9 +72,27 @@
     </div>
     <div class='colmm'>
       <h3 class='mess-header'>Message</h3>
-      <p class='mess-cont'>{{message}}
+      <p class='mess-cont'>{{this.message}}
     </div>
   </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>
+</div>
+
+</div>
+</div>
   {{/each}}
+  <script>
+  $(document).ready(function(){
+
+
+  $('#myModal{{id}}').on('shown.bs.modal', function () {
+    $('#myInput').focus()
+  })
+  })
+
+  </script>
 </body>
 </html>
