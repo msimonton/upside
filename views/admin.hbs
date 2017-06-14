@@ -24,11 +24,12 @@
 
 
 {{#each allMessages}}
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
   <div class='messages'>
+    <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal-{{id}}">View</button>
+    <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal-{{id}}" href='/{{id}}/delete'>Delete</button>
     <div class='colmm'>
       <h3 class='mess-header'>From</h3>
-      <p class='mess-cont'>{{name}}
+      <p class='mess-cont'>{{this.name}}
     </div>
     <div class='colmm'>
       <h3 class='mess-header'>Recieved</h3>
@@ -36,14 +37,14 @@
     </div>
 
 
-    <div id="myModal" class="modal fade" role="dialog">
+    <div id="myModal-{{id}}" class="modal fade" role="dialog">
       <div class="modal-dialog">
 
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Contact Us</h4>
+            <a href='/{{id}}/delete'>Delete</a>
           </div>
           <div class="modal-body">
 
@@ -51,7 +52,7 @@
 
             <div class='colmm'>
               <h3 class='mess-header'>From</h3>
-              <p class='mess-cont'>{{name}}
+              <p class='mess-cont'>{{this.name}}
             </div>
             <div class='colmm'>
               <h3 class='mess-header'>Recieved</h3>
@@ -71,7 +72,7 @@
     </div>
     <div class='colmm'>
       <h3 class='mess-header'>Message</h3>
-      <p class='mess-cont'>{{message}}
+      <p class='mess-cont'>{{this.message}}
     </div>
   </div>
 </div>
@@ -87,7 +88,7 @@
   $(document).ready(function(){
 
 
-  $('#myModal').on('shown.bs.modal', function () {
+  $('#myModal{{id}}').on('shown.bs.modal', function () {
     $('#myInput').focus()
   })
   })

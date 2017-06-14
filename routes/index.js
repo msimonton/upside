@@ -36,5 +36,23 @@ router.post('/messages', function(req, res, next) {
 });
 
 
+function deleteMessage(messID){
+  return knex('messages').where('id', messID)
+  .del()
+}
+
+
+router.get('/:id/delete', function(req, res,next){
+  deleteMessage(req.params.id)
+  .then(function()  {
+  res.redirect('back');
+})
+.catch((err) => {
+  console.error('Error caught in deleting post from DB')
+  next(err)
+})
+})
+
+
 
 module.exports = router;
