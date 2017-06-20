@@ -28,6 +28,7 @@ router.post('/messages', function(req, res, next) {
   Messages().insert({name: req.body.name,
                     email: req.body.email,
                     subject: req.body.subject,
+                    topic: req.body.topic,
                     phoneNumber: req.body.phoneNumber,
                     message: req.body.message
      }).then(function () {
