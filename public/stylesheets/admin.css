@@ -22,22 +22,60 @@ body {
   background-color: #192128;
 }
 
-.messages {
-  padding: 50px;
+th, td  {
+  text-align: left;
+}
+
+.condensed-message  {
   margin: auto;
-  background-color: white;
+  margin-top: 200px;
   width: 60%;
-  margin-bottom: 40px;
-  padding-top: 0px;
+}
+
+.view-message {
+  background-color: white;
+  width: 100%;
+  table-layout: fixed;
+  margin-bottom: 30px;
+
+}
+
+.view-message:hover {
+  cursor: pointer;
+}
+
+.messages {
+
+  margin: auto;
+
+
+}
+
+.colmn  {
 }
 
 .mess-header  {
-  margin-bottom: 3px;
+
 }
 
 .form-label {
 }
 
 .mess-cont  {
+  padding: 10px 10px 10px 10px;
   margin-top: 0px;
+}
+
+
+
+.mess-cont > p {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.mess-sender  {
+  font-size: 20px;
+}
+
+.mess-sub {
+  display: inline-block;
 }

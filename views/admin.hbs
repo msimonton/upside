@@ -15,6 +15,10 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <link rel='stylesheet' type="text/css" href="stylesheets/admin.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="stylesheets/styles.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans:300" rel="stylesheet">
 </head>
 <body>
 
@@ -23,19 +27,31 @@
 
 
 
+<table class='condensed-message'>
 {{#each allMessages}}
-  <div class='messages'>
-    <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal-{{id}}">View</button>
-    <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal-{{id}}" href='/{{id}}/delete'>Delete</button>
-    <div class='colmm'>
-      <h3 class='mess-header'>From</h3>
-      <p class='mess-cont'>{{this.name}}
-    </div>
-    <div class='colmm'>
-      <h3 class='mess-header'>Recieved</h3>
-      <p class='mess-cont'>{{created_at}}
-    </div>
+  <tr class='messages'>
+    <td>
+    <table class="view-message" data-toggle="modal" data-target="#myModal-{{id}}">
+        <tr class='colmm'>
+          <!-- <h3 class='mess-header'>From</h3> -->
+          <td class='mess-cont'>
+            <p class='mess-sender'>{{name}}</p>
+          </td>
+          <td>
+            <p class='mess-sub'>{{topic}}</p>
+          </td>
+          <td class='mess-cont'>
+          <!-- <h3 class='mess-header'>Recieved</h3> -->
+          <p class='mess-time'>{{created_at}}</p>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  {{/each}}
+</table>
 
+{{#each allMessages}}
 
     <div id="myModal-{{id}}" class="modal fade" role="dialog">
       <div class="modal-dialog">
@@ -56,7 +72,7 @@
             </div>
             <div class='colmm'>
               <h3 class='mess-header'>Recieved</h3>
-              <p class='mess-cont'>{{date}}
+              <p class='mess-cont'>{{this.created_at}}
             </div>
     <div class='colmm'>
       <h3 class='mess-header'>Email</h3>
@@ -82,7 +98,7 @@
 </div>
 
 </div>
-</div>
+
   {{/each}}
   <script>
   $(document).ready(function(){
