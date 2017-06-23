@@ -3,7 +3,8 @@ const moment= require('moment')
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('messages', function(table) {
     table.increments();
-    table.timestamp('created_at').defaultTo(knex.fn.now());;
+    table.string('date_short');
+    table.string('date_long');
     table.string('name');
     table.string('email');
     table.bigInteger('phoneNumber');
