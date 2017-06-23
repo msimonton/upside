@@ -1,22 +1,23 @@
 var express = require('express');
 var router = express.Router();
 var knex = require('../db/knex');
+var moment = require('moment');
 
 
 function Messages() {
   return knex('messages');
 }
 
-/* GET home page. */
-
-// router.get('/admin', function(req, res, next) {
-//   res.render('/admin', { title: 'Express' });
-// });
+function dateFormat() {
+  moment()
+}
 
 
 router.get('/admin', function(req, res, next) {
-  Messages().select().then(function (records) {
-    res.render('admin.hbs', {allMessages: records});
+  Messages().select()
+  .then(function (records) {
+    res.render('admin.hbs', {allMessages: records,
+    });
   });
 });
 
@@ -25,7 +26,9 @@ router.get('/home', function(req, res, next) {
 });
 
 router.post('/messages', function(req, res, next) {
-  Messages().insert({name: req.body.name,
+  Messages().insert({date_short: moment().format('ddd, MMM Do'),
+                    date_long: moment().format('ddd, MMM Do h:ma'),
+                    name: req.body.name,
                     email: req.body.email,
                     subject: req.body.subject,
                     topic: req.body.topic,
