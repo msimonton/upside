@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var knex = require('../db/knex');
 var moment = require('moment');
+var nodemailer = require("nodemailer");
 
 
 function Messages() {
@@ -34,10 +35,35 @@ router.post('/messages', function(req, res, next) {
                     topic: req.body.topic,
                     phoneNumber: req.body.phoneNumber,
                     message: req.body.message
-     }).then(function () {
-    res.redirect('/#/connect')
+     }).then(function() {
+
+  var smtpTransport = nodemailer.createTransport({
+     service: "Outlook",  // sets automatically host, port and connection security settings
+     auth: {
+         user: "masspm1021@outlook.com",
+         pass: "Test12345"
+     }
   });
-});
+
+  smtpTransport.sendMail({  //email options
+     from: "masspm1021@outlook.com", // sender address.  Must be the same as authenticated user if using Gmail.
+     to: "masspm1021@yahoo.com",
+     replyTo: req.body.email, // receiver
+     subject: req.body.topic +"| "+ req.body.subject, // subject
+     text: req.body.message // body
+  }, function(error, response){  //callback
+     if(error){
+         console.log(error);
+     }else{
+         console.log("Message sent: " + response.message);
+     }
+
+     smtpTransport.close(); // shut down the connection pool, no more messages.  Comment this line out to continue sending emails.
+  })
+ res.redirect('/#/connect')
+})
+
+})
 
 
 function deleteMessage(messID){
