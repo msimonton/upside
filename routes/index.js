@@ -13,6 +13,46 @@ function dateFormat() {
   moment()
 }
 
+router.post('/reply', function(req, res, next) {
+  // Messages().insert({date_short: moment().format('ddd,  MMM Do'),
+  //                   date_long: moment().format('ddd,  MMM Do h:ma'),
+  //                   name: req.body.name,
+  //                   email: req.body.email,
+  //                   subject: req.body.subject,
+  //                   topic: req.body.topic,
+  //                   phoneNumber: req.body.phoneNumber,
+  //                   message: req.body.message
+  //    }).then(function() {
+
+  var smtpTransport = nodemailer.createTransport({
+     service: "Outlook",
+     auth: {
+         user: "masspm1021@outlook.com",
+         pass: "Test12345"
+     }
+  });
+
+  smtpTransport.sendMail({
+     from: "masspm1021@outlook.com",
+     to: req.body.rep_email,
+     replyTo: 'marc.simonton@yahoo.com',
+     subject: req.body.rep_subject,
+     text: req.body.rep_message
+  }, function(error, response){
+     if(error){
+         console.log(error);
+     }else{
+         console.log("Message sent to: "+req.body.rep_email);
+     }
+     smtpTransport.close();
+  })
+ res.redirect('/admin')
+})
+
+
+
+
+
 
 router.get('/admin', function(req, res, next) {
   Messages().select()
@@ -37,32 +77,30 @@ router.post('/messages', function(req, res, next) {
                     message: req.body.message
      }).then(function() {
 
-  var smtpTransport = nodemailer.createTransport({
-     service: "Outlook",  // sets automatically host, port and connection security settings
-     auth: {
-         user: "masspm1021@outlook.com",
-         pass: "Test12345"
-     }
-  });
+    var smtpTransport = nodemailer.createTransport({
+       service: "Outlook",
+       auth: {
+           user: "masspm1021@outlook.com",
+           pass: "Test12345"
+       }
+    });
 
-  smtpTransport.sendMail({  //email options
-     from: "masspm1021@outlook.com", // sender address.  Must be the same as authenticated user if using Gmail.
-     to: "masspm1021@yahoo.com",
-     replyTo: req.body.email, // receiver
-     subject: req.body.topic +"| "+ req.body.subject, // subject
-     text: req.body.message // body
-  }, function(error, response){  //callback
-     if(error){
-         console.log(error);
-     }else{
-         console.log("Message sent: " + response.message);
-     }
-
-     smtpTransport.close(); // shut down the connection pool, no more messages.  Comment this line out to continue sending emails.
+    smtpTransport.sendMail({
+       from: "masspm1021@outlook.com",
+       to: "masspm1021@yahoo.com",
+       replyTo: req.body.email,
+       subject: req.body.topic +"| "+ req.body.subject,
+       text: req.body.message
+    }, function(error, response){
+       if(error){
+           console.log(error);
+       }else{
+           console.log("Message sent");
+       }
+       smtpTransport.close();
+    })
+   res.redirect('/#/connect')
   })
- res.redirect('/#/connect')
-})
-
 })
 
 
