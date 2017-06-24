@@ -62,7 +62,7 @@
 
 {{#each allMessages}}
 
-    <div id="myModal-{{id}}" class="modal fade" role="dialog">
+    <div id="myModal-{{id}}" class="modal fade mes-modal" role="dialog">
       <div class="modal-dialog">
 
         <!-- Modal content-->
@@ -101,6 +101,16 @@
               </tr>
             </table>
 
+            <form action='/reply' method="post" class='reply-form'>
+              <h2 class='form-label'>To:</h2>
+              <input type='text' value='{{this.email}}' name='rep_email'>
+              <h2 class='form-label'>Subject:</h2>
+              <input type ='text' value='RE: {{this.subject}}' name='rep_subject'>
+              <h2 class='form-label'>Message</h2>
+              <textarea cols='70' rows='10' name='rep_message'></textarea>
+              <input id='form-submit' type="submit" value='Send' data-toggle=='modal'>
+            </form>
+
 
 
 
@@ -133,6 +143,7 @@
   </div>
 </div>
 <div class="modal-footer">
+  <div class='btn btn-default reply'>Reply</div>
   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 </div>
 </div>
@@ -142,6 +153,9 @@
   {{/each}}
   <script>
   $(document).ready(function(){
+    $('.reply').click(function()  {
+      $('.reply-form').css('display','block')
+    })
 
 
   $('#myModal{{id}}').on('shown.bs.modal', function () {

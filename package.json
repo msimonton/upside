@@ -15,7 +15,8 @@
     "knex": "^0.13.0",
     "moment": "^2.18.1",
     "morgan": "~1.7.0",
+    "nodemailer": "^3.1.5",
     "pg": "^6.2.4",
-    "serve-favicon": "~2.3.0",
+    "serve-favicon": "~2.3.0"
   }
 }

@@ -22,6 +22,14 @@ body {
   background-color: #192128;
 }
 
+.reply-form {
+  display: none;
+}
+
+.reply-form > input {
+  width: 70%;
+}
+
 
 
 th, td  {
@@ -166,10 +174,24 @@ td.columnC  {
   font-size: 16px;
 }
 
+.modal-dialog  {
+  width: 70%;
+}
+
+
 #sender-name  {
   font-size: 24px !important;
   font-weight: bold;
 }
 #mes-full {
   padding-top: 10px;
+}
+
+#form-submit  {
+  width: 50px;
+}
+
+textarea  {
+  box-sizing: border-box;
+  width: 90%;
 }
