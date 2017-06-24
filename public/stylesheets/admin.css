@@ -22,21 +22,56 @@ body {
   background-color: #192128;
 }
 
+
+
 th, td  {
   text-align: left;
+
+}
+
+td {
+  padding-bottom: 0px !important;
+  vertical-align: baseline;
+  padding-right: 5px;
+}
+
+td.columnA  {
+  width: 40%;
+}
+td.columnB  {
+  width: 25%;
+}
+
+td.columnC  {
+  width: 35%;
+}
+
+
+.message-header {
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24px;
 }
 
 .condensed-message  {
   margin: auto;
-  margin-top: 200px;
+  margin-top: 100px;
+  margin-bottom: 10px;
   width: 60%;
+  table-layout: fixed;
+  white-space: nowrap;
+
+
 }
 
+
+
 .view-message {
+  margin: auto;
   background-color: white;
-  width: 100%;
+  width: 60%;
   table-layout: fixed;
-  margin-bottom: 30px;
+  margin-bottom: 2px;
 
 }
 
@@ -45,7 +80,7 @@ th, td  {
 }
 
 .messages {
-
+ width: 100%;
   margin: auto;
 
 
@@ -62,7 +97,7 @@ th, td  {
 }
 
 .mess-cont  {
-  padding: 10px 10px 10px 10px;
+  padding: 10px 10px 0px 10px;
   margin-top: 0px;
 }
 
@@ -76,6 +111,65 @@ th, td  {
   font-size: 20px;
 }
 
+
+#subject  {
+  height: 30px;
+  padding-left: 20px;
+  padding-right: 10px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 0;
+}
+
+#sub-row  {
+  /*text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;*/
+  margin-right: 20px;
+}
+
+.message-sub  {
+  font-size: 16px;
+  margin: 0px;
+  padding-right: 5px;
+
+}
+
 .mess-sub {
+
+  margin-right: 10px;
+  /*text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: baseline;*/
+}
+
+.message-sub, .mess-sub {
   display: inline-block;
+}
+
+.mess-sender, .mess-sub, .mess-time {
+  margin-bottom: 0px;
+}
+
+
+#subject-row {
+  padding-bottom: 10px;
+  border-bottom: 2px solid black;
+}
+
+
+#sender-info > p {
+  display: inline-block;
+  margin-right: 5px;
+  font-size: 16px;
+}
+
+#sender-name  {
+  font-size: 24px !important;
+  font-weight: bold;
+}
+#mes-full {
+  padding-top: 10px;
 }

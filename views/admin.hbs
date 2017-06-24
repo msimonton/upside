@@ -28,9 +28,13 @@
 
 
 <table class='condensed-message'>
+  <tr id='header-row'>
+    <th class='message-header'>From</th>
+    <th class='message-header'>Topic</th>
+    <th class='message-header'>Recieved</th>
+  </tr>
 {{#each allMessages}}
   <tr class='messages'>
-    <td>
     <table class="view-message" data-toggle="modal" data-target="#myModal-{{id}}">
         <tr class='colmm'>
           <!-- <h3 class='mess-header'>From</h3> -->
@@ -40,13 +44,18 @@
           <td>
             <p class='mess-sub'>{{topic}}</p>
           </td>
-          <td class='mess-cont'>
-          <!-- <h3 class='mess-header'>Recieved</h3> -->
+          <td>
           <p class='mess-time'>{{date_short}}</p>
         </td>
       </tr>
+    <tr id='sub-row'>
+      <td colspan="3" id='subject'>
+         <h3 class='message-sub'>Subject:</h3>
+        <p class='mess-sub'>{{subject}}</p>
+      </td>
+    </tr>
+
     </table>
-    </td>
   </tr>
   {{/each}}
 </table>
@@ -64,32 +73,63 @@
           </div>
           <div class="modal-body">
 
+            <table id='message-full'>
+              <tr>
+                <td>From</td>
+                <td>Recieved</td>
+              </tr>
+              <tr>
+                <td id='sender-info'>
+                  <p id='sender-name'>{{this.name}}</p>
+
+                  <p>{{this.email}}</p>
+                  <p>{{this.phoneNumber}}</p>
+
+                </td>
+                <td>{{this.date_long}}</td>
+              </tr>
+              <tr>
+                <th>Subject</th>
+                <th>Topic</th>
+              </tr>
+              <tr id='subject-row'>
+                <td>{{this.subject}}</td>
+                <td>{{this.topic}}</td>
+              </tr>
+              <tr id='mes-row'>
+                <td colspan= '2' id='mes-full'>{{this.message}}</td>
+              </tr>
+            </table>
 
 
-            <div class='colmm'>
+
+
+
+
+
+
+            <!-- <div class='colmm'>
               <h3 class='mess-header'>From</h3>
-              <p class='mess-cont'>{{this.name}}
+              <p class='mess-cont' id='mes-name'>{{this.name}}
+                <p class='mess-cont' id='mes-email'>{{email}}
             </div>
             <div class='colmm'>
               <h3 class='mess-header'>Recieved</h3>
-              <p class='mess-cont'>{{this.date_long}}
+              <p class='mess-cont' id='mes-time'>{{this.date_long}}</p>
             </div>
-    <div class='colmm'>
-      <h3 class='mess-header'>Email</h3>
-      <p class='mess-cont'>{{email}}
-    </div>
+
     <div class='colmm'>
       <h3 class='mess-header'>Phone Number</h3>
-      <p class='mess-cont'>{{phoneNumber}}
+      <p class='mess-cont' id='mes-phone'>{{phoneNumber}}
     </div>
     <div class='colmm'>
       <h3 class='mess-header'>Subject</h3>
-      <p class='mess-cont'>{{subject}}
+      <p class='mess-cont' id='mes-sub'>{{subject}}
     </div>
     <div class='colmm'>
       <h3 class='mess-header'>Message</h3>
-      <p class='mess-cont'>{{this.message}}
-    </div>
+      <p class='mess-cont' id='mes-mes'>{{this.message}}
+    </div> -->
   </div>
 </div>
 <div class="modal-footer">

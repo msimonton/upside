@@ -26,8 +26,8 @@ router.get('/home', function(req, res, next) {
 });
 
 router.post('/messages', function(req, res, next) {
-  Messages().insert({date_short: moment().format('ddd, MMM Do'),
-                    date_long: moment().format('ddd, MMM Do h:ma'),
+  Messages().insert({date_short: moment().format('ddd,  MMM Do'),
+                    date_long: moment().format('ddd,  MMM Do h:ma'),
                     name: req.body.name,
                     email: req.body.email,
                     subject: req.body.subject,
