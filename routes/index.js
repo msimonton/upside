@@ -3,6 +3,7 @@ var router = express.Router();
 var knex = require('../db/knex');
 var moment = require('moment');
 var nodemailer = require("nodemailer");
+var bcrypt = require('bcrypt');
 
 
 function Messages() {
@@ -12,6 +13,8 @@ function Messages() {
 function dateFormat() {
   moment()
 }
+
+          //
 
 router.post('/reply', function(req, res, next) {
   // Messages().insert({date_short: moment().format('ddd,  MMM Do'),
@@ -49,11 +52,6 @@ router.post('/reply', function(req, res, next) {
  res.redirect('/admin')
 })
 
-
-
-
-
-
 router.get('/admin', function(req, res, next) {
   Messages().select()
   .then(function (records) {
@@ -76,7 +74,6 @@ router.post('/messages', function(req, res, next) {
                     phoneNumber: req.body.phoneNumber,
                     message: req.body.message
      }).then(function() {
-
     var smtpTransport = nodemailer.createTransport({
        service: "Outlook",
        auth: {
