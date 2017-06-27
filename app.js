@@ -5,10 +5,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
+const auth = require('./routes/auth');
 
 var app = express();
+require('dotenv').load();
 
 // view engine setup
 app.set('view engine', 'html');
@@ -25,6 +28,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.use('/', auth);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
