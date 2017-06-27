@@ -96,6 +96,7 @@ router.get('/login', function(req, res, next) {
 
 router.get('/home', function(req, res, next) {
     res.redirect('/');
+
 });
 
 router.post('/messages', function(req, res, next) {
@@ -151,6 +152,20 @@ router.get('/:id/delete', function(req, res,next){
   console.error('Error caught in deleting post from DB')
   next(err)
 })
+})
+
+router.get('/admin', function(req, res, next) {
+  if (req.session.user.id !== 'undefined'){
+    Messages().select()
+    .then(function (records) {
+      res.render('admin.hbs', {allMessages: records,
+      });
+    });
+  }
+  else {
+    res.redirect('/')
+
+};
 })
 
 

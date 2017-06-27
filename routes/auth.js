@@ -33,11 +33,13 @@ router.post('/', (req, res, next) => {
       res.render('login.hbs', {error: err});
     } else {
       req.session.user = user;
-      console.log(req.session);
-      res.render('admin.hbs');
+      res.redirect('/admin');
     }
   });
 });
+
+
+
 
 
 
