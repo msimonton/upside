@@ -3,6 +3,36 @@ var router = express.Router();
 var knex = require('../db/knex');
 var moment = require('moment');
 var nodemailer = require("nodemailer");
+const Users = require('../models/users');
+
+// router.use((req, res, next) => {
+//   if (req.session.user) {
+//     next();
+//   } else {
+//     res.redirect('/');
+//   }
+// });
+//
+// function myAccountRequired(req, res, next) {
+//   if (req.session.user.id.toString() === req.params.id) {
+//     next();
+//   } else {
+//     res.redirect('/');
+//   }
+// }
+//
+//
+// router.post('/signin', (req, res, next) => {
+//   Users.authenticateUser(req.body.email, req.body.password, (err, user) => {
+//     if (err) {
+//       res.render('admin.hbs', {error: err});
+//     } else {
+//       req.session.user = user;
+//       console.log(req.session);
+//       res.redirect('/');
+//     }
+//   });
+// });
 
 
 function Messages() {
@@ -49,18 +79,20 @@ router.post('/reply', function(req, res, next) {
  res.redirect('/admin')
 })
 
+router.get('/login', function(req, res, next) {
+  res.render('login.hbs')
+})
 
 
 
 
-
-router.get('/admin', function(req, res, next) {
-  Messages().select()
-  .then(function (records) {
-    res.render('admin.hbs', {allMessages: records,
-    });
-  });
-});
+// router.get('/admin', function(req, res, next) {
+//   Messages().select()
+//   .then(function (records) {
+//     res.render('admin.hbs', {allMessages: records,
+//     });
+//   });
+// });
 
 router.get('/home', function(req, res, next) {
     res.redirect('/');
@@ -120,6 +152,21 @@ router.get('/:id/delete', function(req, res,next){
   next(err)
 })
 })
+
+
+
+
+
+
+
+// tests
+
+
+
+
+
+
+
 
 
 
